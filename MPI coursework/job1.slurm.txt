@@ -1,0 +1,39 @@
+#!/bin/bash
+
+
+#SBATCH --job-name=dma38_job
+
+#SBATCH --account=cm30225
+
+
+#SBATCH --partition=teaching
+
+#SBATCH --nodes=1
+
+
+#SBATCH --time=00:05:00
+
+
+#SBATCH --error=dma38_job-%j.err
+
+#SBATCH --output=dma38_job-%j.out
+
+
+#SBATCH --mail-type=END
+
+#SBATCH --mail-type=BEGIN
+
+#SBATCH --mail-user=dma38@bath.ac.uk
+
+
+
+module purge
+
+module load slurm
+
+module load intel/compiler/64/16.3.210
+
+module load intel/mpi/64/5.1.3.210
+
+
+mpirun ./parrays
